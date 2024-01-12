@@ -1,0 +1,116 @@
+---
+title: "Compare lists in Figure 6"
+author: 'Zuber'
+date: "11012024"
+output:
+  html_document:
+    toc: yes
+---
+
+```{r "setup", echo=TRUE}
+require("knitr") #loading of the knitr package
+knitr::opts_knit$set(root.dir = "/Users/hzuber/Documents/PAPERS/Pouclet_2023/R_data_final/Figure6")# Setting working directory
+knitr::opts_chunk$set(fig.width=4, fig.height=8) 
+```
+
+
+```{R}
+#needed packages
+require(plyr)
+require(reshape2)
+require(ggplot2)
+library (grid)
+require(dplyr)
+library(xlsx)
+```
+
+# Import list of loci identified by the different methods
+```{R}
+library(data.table)
+data_list <- fread("/Users/hzuber/Documents/PAPERS/Pouclet_2023/R_data_final/List_selec.txt", header=T, sep="\t")
+data_list$value <- 1
+
+unique(data_list$Melt_Cat)
+data_list$Melt_Cat <- factor(data_list$Melt_Cat, levels=c("SMALL_UP", "SMALL_DOWN", "TRIBE_D153N_EDITED", "GMUCT_DOWN"))
+```
+
+# Create a presence abscence matrix
+```{R}
+library(reshape2)
+data_list_cast <- reshape2::dcast(data_list, AGI ~ Melt_Cat, value.var = "value")
+
+data_list_cast[is.na(data_list_cast)] = 0
+data_list_cast_mat <- data_list_cast[,-1]
+```
+
+# Make an illustrating graphs for the matrix
+
+## Aggregate the presence abscence matrix 
+
+Aggregate matrix
+```{R}
+Matrix <- do.call(rbind,
+  by(data_list_cast_mat,
+     data_list_cast_mat,
+     function(x){
+       data.frame(unique(x),"Count"=nrow(x))
+     }
+  )
+)
+```
+
+## Add column with number of list and a rank
+
+```{R}
+Matrix <- as.data.frame(Matrix)
+colnames(Matrix) <- c("siRNA Up", "siRNA Down", "TRIBE D153N", "GMUCT Down", "Count")
+Matrix <- Matrix %>% mutate_if(is.character, as.numeric)
+Matrix$consecutive_numbers<-c(1, 5, 9, 2, 6, 10, 3, 7, 11, 4, 8)
+```
+
+## transform to long format (ggplot friendly)
+
+```{R}
+Long_matrix <- reshape2::melt(Matrix, id.vars = c("Count", "consecutive_numbers"), value.name = "Presence")
+Long_matrix$variable <- factor(Long_matrix$variable, levels=c("siRNA Up", "siRNA Down", "TRIBE D153N", "GMUCT Down"))
+```
+
+## Make bubble chart
+
+
+```{R}
+my_colors <-c("darkred", "orange", "gray20", "gray70")
+
+p <- ggplot(Long_matrix, aes(variable, consecutive_numbers)) + 
+  geom_point(data = subset(Long_matrix, Presence == 1), aes(color= variable, fill=variable, size = Count), alpha = 0.8) +
+  scale_fill_manual(values = my_colors)+
+  scale_color_manual(values = my_colors) +
+    # Adjust the range of points size +
+  scale_size(range = c(6, 15)) +
+  scale_y_reverse() +
+  scale_x_discrete(position = "top") +
+  geom_text(data = subset(Long_matrix, Presence == 1), aes(label=Count), color="white") +
+   theme_classic() +
+                      theme (panel.spacing = unit(0.1, "lines"),
+                      plot.title = element_text(hjust = 0.5),
+                      strip.background = element_blank(),
+                      panel.background = element_blank(),
+                      #panel.border = element_rect(colour="black",fill=NA,size=0.3),
+                      axis.text = element_text(size=8, angle=90, color="black", vjust = 0.5, hjust=1),
+                      axis.text.y = element_blank(),
+                      axis.title =element_blank(),
+                      axis.line = element_blank(),
+                      axis.ticks.y=element_blank(),
+                      panel.grid.major.y = element_line(size = 0.2, linetype = 'dashed', colour = "gray70"),
+                      panel.grid.minor.y = element_line(size = 0.2, linetype = 'dashed', colour = "gray70"),
+                      panel.grid.major.x = element_line(size = 0.2, linetype = 'dashed', colour = "gray70")) +
+                      theme(legend.title = element_blank(),
+                      legend.text = element_text(size = 7, color="black"))
+p
+                      
+ggsave(filename ="bubble_graphs_Figure6.pdf", p, width = 4, height = 8, limitsize = FALSE, dpi = 300)
+```
+
+```{R}
+sessionInfo()
+```
