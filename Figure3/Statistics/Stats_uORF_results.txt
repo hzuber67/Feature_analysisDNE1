@@ -1,0 +1,35 @@
+Contingency table 
+ 
+	flowers	TRIBE D153N	seedling	GMUCT DOWN	GMUCT Nagarajan	TRIBED153N&GMUCT
+no_uORF	22649	1871	21078	1109	191	229
+uORF	2045	381	2031	187	27	59
+
+ 
+ Statistic results 
+ 
+group1	group2	p	p.adj	p.adj.signif
+flowers	TRIBE D153N	1.54e-42	2.31e-41	****
+flowers	seedling	0.049	0.294	ns
+TRIBE D153N	seedling	6.14e-36	8.6e-35	****
+flowers	GMUCT DOWN	2.03e-14	2.64e-13	****
+TRIBE D153N	GMUCT DOWN	0.0575	0.294	ns
+seedling	GMUCT DOWN	8.84e-12	9.73e-11	****
+flowers	GMUCT Nagarajan	0.0393	0.275	ns
+TRIBE D153N	GMUCT Nagarajan	0.104	0.325	ns
+seedling	GMUCT Nagarajan	0.0812	0.325	ns
+GMUCT DOWN	GMUCT Nagarajan	0.486	0.486	ns
+flowers	TRIBED153N&GMUCT	2.71e-13	3.25e-12	****
+TRIBE D153N	TRIBED153N&GMUCT	0.155	0.325	ns
+seedling	TRIBED153N&GMUCT	9.55e-12	9.73e-11	****
+GMUCT DOWN	TRIBED153N&GMUCT	0.0132	0.119	ns
+GMUCT Nagarajan	TRIBED153N&GMUCT	0.0224	0.179	ns
+
+ 
+ Statistic letters (p-value <= 0.001) 
+ 
+a	flowers
+b	TRIBE D153N
+a	seedling
+b	GMUCT DOWN
+ab	GMUCT Nagarajan
+b	TRIBED153N&GMUCT
