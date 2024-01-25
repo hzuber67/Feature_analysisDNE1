@@ -1,0 +1,59 @@
+Contingency table 
+ 
+	flowers	up dne1.2 dcp2 vs dcp2	up dne1.3 dcp2 vs dcp2	up dne1 dcp2 vs dcp2	xrn4	dcp2	down dne1.2 dcp2 vs dcp2	down dne1.3 dcp2 vs dcp2	down dne1 dcp2 vs dcp2
+no_uORF	22649	62	59	47	4094	2006	75	80	58
+uORF	2045	7	8	5	643	380	48	46	39
+
+ 
+ Statistic results 
+ 
+group1	group2	p	p.adj	p.adj.signif
+flowers	up dne1.2 dcp2 vs dcp2	0.732	1	ns
+flowers	up dne1.3 dcp2 vs dcp2	0.388	1	ns
+up dne1.2 dcp2 vs dcp2	up dne1.3 dcp2 vs dcp2	0.952	1	ns
+flowers	up dne1 dcp2 vs dcp2	0.923	1	ns
+up dne1.2 dcp2 vs dcp2	up dne1 dcp2 vs dcp2	1	1	ns
+up dne1.3 dcp2 vs dcp2	up dne1 dcp2 vs dcp2	0.915	1	ns
+flowers	xrn4	6.97e-31	2.37e-29	****
+up dne1.2 dcp2 vs dcp2	xrn4	0.516	1	ns
+up dne1.3 dcp2 vs dcp2	xrn4	0.835	1	ns
+up dne1 dcp2 vs dcp2	xrn4	0.531	1	ns
+flowers	dcp2	1.38e-35	4.96e-34	****
+up dne1.2 dcp2 vs dcp2	dcp2	0.258	1	ns
+up dne1.3 dcp2 vs dcp2	dcp2	0.476	1	ns
+up dne1 dcp2 vs dcp2	dcp2	0.297	1	ns
+xrn4	dcp2	0.00839	0.134	ns
+flowers	down dne1.2 dcp2 vs dcp2	1.41e-33	4.93e-32	****
+up dne1.2 dcp2 vs dcp2	down dne1.2 dcp2 vs dcp2	4.49e-05	0.00108	**
+up dne1.3 dcp2 vs dcp2	down dne1.2 dcp2 vs dcp2	0.00018	0.00378	**
+up dne1 dcp2 vs dcp2	down dne1.2 dcp2 vs dcp2	0.000225	0.00427	**
+xrn4	down dne1.2 dcp2 vs dcp2	4.21e-15	1.31e-13	****
+dcp2	down dne1.2 dcp2 vs dcp2	7.1e-11	1.99e-09	****
+flowers	down dne1.3 dcp2 vs dcp2	3.35e-29	1.11e-27	****
+up dne1.2 dcp2 vs dcp2	down dne1.3 dcp2 vs dcp2	0.000152	0.00349	**
+up dne1.3 dcp2 vs dcp2	down dne1.3 dcp2 vs dcp2	0.000558	0.01	*
+up dne1 dcp2 vs dcp2	down dne1.3 dcp2 vs dcp2	0.000612	0.0104	*
+xrn4	down dne1.3 dcp2 vs dcp2	8.28e-13	2.4e-11	****
+dcp2	down dne1.3 dcp2 vs dcp2	4.15e-09	1.08e-07	****
+down dne1.2 dcp2 vs dcp2	down dne1.3 dcp2 vs dcp2	0.78	1	ns
+flowers	down dne1 dcp2 vs dcp2	9.4e-29	3.01e-27	****
+up dne1.2 dcp2 vs dcp2	down dne1 dcp2 vs dcp2	4.33e-05	0.00108	**
+up dne1.3 dcp2 vs dcp2	down dne1 dcp2 vs dcp2	0.00017	0.00375	**
+up dne1 dcp2 vs dcp2	down dne1 dcp2 vs dcp2	0.000205	0.00409	**
+xrn4	down dne1 dcp2 vs dcp2	2.64e-13	7.92e-12	****
+dcp2	down dne1 dcp2 vs dcp2	9.32e-10	2.52e-08	****
+down dne1.2 dcp2 vs dcp2	down dne1 dcp2 vs dcp2	0.969	1	ns
+down dne1.3 dcp2 vs dcp2	down dne1 dcp2 vs dcp2	0.671	1	ns
+
+ 
+ Statistic letters (p-value <= 0.001) 
+ 
+a	flowers
+abc	up dne1.2 dcp2 vs dcp2
+abc	up dne1.3 dcp2 vs dcp2
+abc	up dne1 dcp2 vs dcp2
+b	xrn4
+b	dcp2
+c	down dne1.2 dcp2 vs dcp2
+c	down dne1.3 dcp2 vs dcp2
+c	down dne1 dcp2 vs dcp2

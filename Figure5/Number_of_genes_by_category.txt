@@ -1,0 +1,10 @@
+List	n
+flowers	24694
+up dne1.2 dcp2 vs dcp2	69
+up dne1.3 dcp2 vs dcp2	67
+up dne1 dcp2 vs dcp2	52
+xrn4	4737
+dcp2	2386
+down dne1.2 dcp2 vs dcp2	123
+down dne1.3 dcp2 vs dcp2	126
+down dne1 dcp2 vs dcp2	97
